@@ -1,0 +1,28 @@
+{
+  "name": "sakir",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "LevyeBaskan",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "commando-provider-mongo": "^1.1.1",
+    "discord-bots-api": "0.0.2",
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "ffmpeg": "0.0.4",
+    "jimp": "^0.5.3",
+    "mc-ping-updated": "^0.1.0",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "mongodb": "^3.1.6",
+    "simple-youtube-api": "^5.0.2",
+    "sqlite": "^3.0.0",
+    "weather-js": "^2.0.0",
+    "winston": "^3.1.0",
+    "ytdl-core": "^0.26.0"
+  }
+}
