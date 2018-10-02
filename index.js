@@ -1,4 +1,4 @@
-onst { CommandoClient, SQLiteProvider } = require('discord.js-commando');
+const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
 path = require('path'),
 moment = require('moment'),
 sqlite = require('sqlite');
