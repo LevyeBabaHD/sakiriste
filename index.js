@@ -15,10 +15,17 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-		['sunucu', 'Sunucu Komutları'],
-		['bot', 'Bot Komutları'],
-		['ayarlar', 'Ayarlar'],
-		['admin', 'Admin'],
+    ['bot', 'Bot Komutları'],
+    ['kullanıcı', 'Kullanıcı Komutları'],
+    ['eğlence', 'Eğlence Komutları'],
+    ['başvuru', 'Başvuru Sistemi'],
+    ['sunucu', 'Sunucu Komutları'],
+    ['moderasyon', 'Moderasyon Komutları'],
+    ['ayarlar', 'Ayarlar'],
+    ['genel', 'Genel Komutlar'],
+    ['admin', 'Bot Sahibi Komutları'],
+    ['destek', 'Destek'],
+    ['minecraft', 'Minecraft Komutları'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
