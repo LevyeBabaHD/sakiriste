@@ -5,28 +5,27 @@ sqlite = require('sqlite');
 
 const ayarlar = require('./data/ayarlar.json');
 
- 
 const client = new CommandoClient({
-    commandPrefix: ayarlar.prefix,
+    commandPrefix: ayarlar.PREFIX,
     unknownCommandResponse: false,
-    owner: ayarlar.sahip,
-    disableEveryone: true
+    owner: ayarlar.SAHIP,
+    disableEveryone: false
 });
 
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-    ['bot', 'Bot Komutları'],
-    ['kullanıcı', 'Kullanıcı Komutları'],
-    ['eğlence', 'Eğlence Komutları'],
-    ['başvuru', 'Başvuru Sistemi'],
-    ['sunucu', 'Sunucu Komutları'],
-    ['moderasyon', 'Moderasyon Komutları'],
-    ['ayarlar', 'Ayarlar'],
-    ['genel', 'Genel Komutlar'],
-    ['admin', 'Bot Sahibi Komutları'],
-    ['destek', 'Destek'],
-    ['minecraft', 'Minecraft Komutları'],
+      ['bot', 'Bot Komutları'],
+      ['kullanıcı', 'Kullanıcı Komutları'],
+      ['eğlence', 'Eğlence Komutları'],
+      ['başvuru', 'Başvuru Sistemi'],
+      ['sunucu', 'Sunucu Komutları'],
+      ['moderasyon', 'Moderasyon Komutları'],
+      ['ayarlar', 'Ayarlar'],
+      ['genel', 'Genel Komutlar'],
+      ['admin', 'Bot Sahibi Komutları'],
+      ['destek', 'Destek'],
+      ['minecraft', 'Minecraft Komutları'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
@@ -34,17 +33,18 @@ client.registry
 
 	sqlite.open(path.join(__dirname, "database.sqlite3")).then((db) => {
 		client.setProvider(new SQLiteProvider(db));
-	client.on('ready', () => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`),
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.user.username} ismi ile giriş yaptı!`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.guilds.size} Sunucu | ${client.users.size} Kullanıcıya hizmet veriyoruz.`)
-  client.user.setStatus('dnd')
-  client.setInterval(() => {
-      client.user.setActivity("şakir-help | Yardım Menüsü", { type: "WATCHING" });
-      client.user.setActivity("şakir-tavsiye şakir-canlı-destek | Tavsiyelerinizi Bildirin CanlıDestekden İletişime Geçin", { type: "WATCHING" });
+	});
+
+client.on('ready', () => {
+        client.user.setActivity("şakir-canlı-destek | Bizleri Canlı Destekden İletişime Geçin", { type: "WATCHING" });
+      client.user.setActivity("şakir-tavsiye | Tavsiyelerinizi Bize Bildirin", { type: "WATCHING" });
       client.user.setActivity(`${client.guilds.size} Sunucu | ${client.users.size} Kullanıcı`, { type: "WATCHING" });
   }, 15000);
-});
+});	
+client.on('ready', () => {
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`),
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.user.username} ismi ile giriş yaptı!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.guilds.size} Sunucu | ${client.users.size} Kullanıcıya hizmet veriyor.`)});
 
 client.on('error', err => {
 	console.log(err)
