@@ -5,11 +5,12 @@ sqlite = require('sqlite');
 
 const ayarlar = require('./data/ayarlar.json');
 
+ 
 const client = new CommandoClient({
     commandPrefix: ayarlar.prefix,
     unknownCommandResponse: false,
-    owner: ayarlar.sahip
-    disableEveryone: false
+    owner: ayarlar.sahip,
+    disableEveryone: true
 });
 
 client.registry
