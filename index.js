@@ -26,16 +26,18 @@ client.registry
 
 	sqlite.open(path.join(__dirname, "database.sqlite3")).then((db) => {
 		client.setProvider(new SQLiteProvider(db));
-	});
-   client.user.setActivity("şakir-help | Yardım Menüsü, { type: "WATCHING" });
-      client.user.setActivity("şakir-canlı-destek | Canlı Destekden İleşişime Geçin", { type: "WATCHING" });
-      client.user.setActivity("şakir-tavsiye | Tavsiyelerinize Bize Bildirin", { type: "WATCHING" });
-      client.user.setActivity(`${client.guilds.size} Sunucu | ${client.users.size} Kullanıcıya Hizmet Veriyoruz`, { type: "WATCHING" });
+	client.on('ready', () => {
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`),
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.user.username} ismi ile giriş yaptı!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.guilds.size} Sunucu | ${client.users.size} Kullanıcıya hizmet veriyoruz.`)
+  client.user.setStatus('dnd')
+  client.setInterval(() => {
+      client.user.setActivity("şakir-help | Yardım Menüsü", { type: "WATCHING" });
+      client.user.setActivity("şakir-tavsiye şakir-canlı-destek | Tavsiyelerinizi Bildirin CanlıDestekden İletişime Geçin", { type: "WATCHING" });
+      client.user.setActivity(`${client.guilds.size} Sunucu | ${client.users.size} Kullanıcı`, { type: "WATCHING" });
   }, 15000);
 });
-client.on('ready', () => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`);
-	
+
 client.on('error', err => {
 	console.log(err)
 });
