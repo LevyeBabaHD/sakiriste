@@ -34,7 +34,6 @@ client.registry
   }, 15000);
 });
 client.on('ready', () => {
-  client.user.setActivity("", { type: "WATCHING"});       
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`);
 	
 client.on('error', err => {
