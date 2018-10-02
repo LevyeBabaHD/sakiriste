@@ -38,8 +38,6 @@ client.on('ready', () => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Aktif, Komutlar yüklendi!`);
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] LOG: Bot ${client.user.username} İsmi İle Giriş Yaptı`);
 	
-});
-
 client.on('error', err => {
 	console.log(err)
 });
